@@ -7,6 +7,9 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.springframework.util.Assert;
 import java.net.MalformedURLException;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import com.kivanc.common.*;
 
 public class properties {
 
@@ -31,6 +34,7 @@ public class properties {
         driver.findElement(manageStorageTab).click();
         driver.findElement(upgradeStorage).click();
 
+
         if (driver.findElement(currentPlanSize).getText().equals("5 GB")){
             System.out.println("Test is Successful");
         }
@@ -38,6 +42,12 @@ public class properties {
 
             System.out.println("Test is Failed");
         }
+
+        Common.basicKeyProcesses(driver,"back");
+        Common.basicKeyProcesses(driver,"home");
+        // driver.navigate().back();
+
+
 
 
     }
